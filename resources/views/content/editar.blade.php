@@ -31,7 +31,7 @@
                             </div>
                         </div>
 
-                        <button class="btn btn-block btn-success" type="submit">Actualizar</button>
+                        <button class="btn btn-block btn-success" type="submit">Actualizar Datos</button>
                                     
                     </form>
                 </div>
