@@ -111,8 +111,8 @@ class AlumnoController extends Controller
         $alumnos->turno    = $request->get('turno');
 
         //return $alumnos;
-        $alumnos->update();
-        return view('content.alumno');
+        $alumnos->save();
+        return redirect('alumno');
 
     }
 
