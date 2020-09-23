@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card-body">
-                    <form action="{{ route('alumno.update',$alumnos->id) }}" method="PUT">
+                    <form action="{{ route('alumno.update',$alumnos->id) }}" method="PUT" enctype="multipart/form-data" id="form">
                         @csrf
                         @method('PUT')
                         <div class="form-group">

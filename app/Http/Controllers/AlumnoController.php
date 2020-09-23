@@ -122,8 +122,11 @@ class AlumnoController extends Controller
      * @param  \App\alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alumno $alumno)
+    public function destroy($id)
     {
         //
+        $alumnos = Alumno::destroy($id);
+        
+        return redirect('alumno');
     }
 }

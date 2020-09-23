@@ -62,8 +62,11 @@
                                     
                                     <a href="{{ route('alumno.edit', $alumno->id) }}"> <button class="btn btn-success btn-sm">EDITAR</button> </a>
 
-
-                                    <button class="btn btn-danger btn-sm">ELIMINAR</button>
+                                    <form action="alumno/{{ $alumno->id }}" method="post">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="btn btn-danger btn-sm" onclick="return confirm('¿Borrar?')">ELIMINAR</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach                     
