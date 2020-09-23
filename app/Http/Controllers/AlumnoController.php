@@ -81,8 +81,8 @@ class AlumnoController extends Controller
          * sin embargo, si no se encuentra ningún resultado, 
          * se lanzará un 
          * */
-        $alumnos = Alumno::findOrFail($id);
-        return view('content.editar', compact('alumnos'));
+        $alumno = Alumno::findOrFail($id);
+        return view('content.editar', compact('alumno'));
     }
 
     /**
@@ -92,28 +92,29 @@ class AlumnoController extends Controller
      * @param  \App\alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Almuno $alumnos)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'nombre'=>'required',
+            'nombre'   =>'required',
             'apellido' => 'required',
-            'edad' => 'required',
-            'grado' => 'required',
-            'turno' => 'required'
+            'edad'     => 'required',
+            'grado'    => 'required',
+            'turno'    => 'required'
         ]);
 
-        //$alumnos = Alumno::findOrFail($id);
+        $alumnos = Alumno::findOrFail($id);
+        //$request->update($request->all());
 
-        // $alumnos->nombre   = $request->get('nombre');
-        // $alumnos->apellido = $request->get('apellido');
-        // $alumnos->edad     = $request->get('edad');
-        // $alumnos->grado    = $request->get('grado');
-        // $alumnos->turno    = $request->get('turno');
+        $alumnos->nombre   = $request->get('nombre');
+        $alumnos->apellido = $request->get('apellido');
+        $alumnos->edad     = $request->get('edad');
+        $alumnos->grado    = $request->get('grado');
+        $alumnos->turno    = $request->get('turno');
 
         //return $alumnos;
-        //$alumnos->update($request->all());
-        //return redirect('alumno');
-        return 'Hola';
+        $alumnos->update();
+        return redirect('alumno');
+        //return back();
 
     }
 
