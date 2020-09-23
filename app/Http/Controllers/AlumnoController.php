@@ -113,7 +113,7 @@ class AlumnoController extends Controller
         //return $alumnos;
         //$alumnos->update($request->all());
         //return redirect('alumno');
-        return $request->all();
+        return 'Hola';
 
     }
 
