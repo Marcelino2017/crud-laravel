@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card-body">
-                    <form action="{{ route('alumno.update',$alumnos->id) }}" method="PUT" enctype="multipart/form-data" id="form">
+                    <form action="{{ route('alumno.update', $alumnos->id) }}" method="PATCH" enctype="multipart/form-data" id="form">
                         @csrf
-                        @method('PUT')
+                        @method('PATCH')
                         <div class="form-group">
                             <label for="inputNombre">Nombre</label>
                             <input type="text" name="nombre" class="form-control" value="{{ $alumnos->nombre }}" placeholder="Nombre" required>

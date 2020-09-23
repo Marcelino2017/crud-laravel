@@ -92,7 +92,7 @@ class AlumnoController extends Controller
      * @param  \App\alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Almuno $alumnos)
     {
         $request->validate([
             'nombre'=>'required',
@@ -102,17 +102,18 @@ class AlumnoController extends Controller
             'turno' => 'required'
         ]);
 
-        $alumnos = Alumno::findOrFail($id);
+        //$alumnos = Alumno::findOrFail($id);
 
-        $alumnos->nombre   = $request->get('nombre');
-        $alumnos->apellido = $request->get('apellido');
-        $alumnos->edad     = $request->get('edad');
-        $alumnos->grado    = $request->get('grado');
-        $alumnos->turno    = $request->get('turno');
+        // $alumnos->nombre   = $request->get('nombre');
+        // $alumnos->apellido = $request->get('apellido');
+        // $alumnos->edad     = $request->get('edad');
+        // $alumnos->grado    = $request->get('grado');
+        // $alumnos->turno    = $request->get('turno');
 
         //return $alumnos;
-        $alumnos->save();
-        return redirect('alumno');
+        //$alumnos->update($request->all());
+        //return redirect('alumno');
+        return $request->all();
 
     }
 
